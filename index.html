@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中華房 希彩 | 小さな中華の特等席</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#9B1B30',
+                            gold: '#C5A059',
+                            dark: '#1A1A1A',
+                            light: '#F9F6F0'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif JP"', 'serif'],
+                        sans: ['"Noto Sans JP"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* 
+        画像ファイル一覧 (images/ディレクトリ内に配置)
+        - hero.jpg : ヒーローヘッダー用画像（ファーストビュー）
+        - story.jpg : コンセプト・店主紹介用画像
+        - p1.jpg : こだわり1（自家製麺・手作りの皮）
+        - p2.jpg : こだわり2（木曽漆器と水餃子など）
+        - p3.jpg : こだわり3（自家製甜麺醤などの調味料）
+        - g1.jpg 〜 g6.jpg : ギャラリー画像（料理や店内の雰囲気）
+        */
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #F9F6F0;
+            color: #1A1A1A;
+            /* 下部固定バーの高さ分、余白を空ける */
+            padding-bottom: 70px; 
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Noto Serif JP', serif;
+        }
+        .text-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ナビゲーションバー -->
+    <header class="fixed w-full top-0 z-40 bg-white/90 backdrop-blur-sm shadow-sm transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- ロゴ -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-serif font-bold text-brand-dark">中華房 <span class="text-brand-red">希彩</span></a>
+                </div>
+                <!-- デスクトップメニュー -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#concept" class="text-gray-700 hover:text-brand-red transition-colors text-sm font-medium">コンセプト</a>
+                    <a href="#commitments" class="text-gray-700 hover:text-brand-red transition-colors text-sm font-medium">こだわり</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-brand-red transition-colors text-sm font-medium">ギャラリー</a>
+                    <a href="#info" class="text-gray-700 hover:text-brand-red transition-colors text-sm font-medium">店舗情報</a>
+                </nav>
+                <!-- モバイルメニューボタン -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-brand-red focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- モバイルメニューパネル -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#concept" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-red hover:bg-gray-50">コンセプト</a>
+                <a href="#commitments" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-red hover:bg-gray-50">こだわり</a>
+                <a href="#gallery" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-red hover:bg-gray-50">ギャラリー</a>
+                <a href="#info" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-red hover:bg-gray-50">店舗情報</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="relative h-screen flex items-center justify-center">
+        <!-- 背景画像 (hero.jpg) -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/hero.jpg" alt="中華房 希彩の店内または料理" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <!-- コンテンツ -->
+        <div class="relative z-10 text-center text-white px-4">
+            <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-bold tracking-widest mb-6 drop-shadow-lg">
+                小さな中華の特等席
+            </h2>
+            <p class="text-lg md:text-xl font-light tracking-widest drop-shadow-md">
+                2026年9月、長野県にオープン。
+            </p>
+        </div>
+    </section>
+
+    <!-- ストーリー・コンセプトセクション -->
+    <section id="concept" class="py-20 bg-brand-light">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2">
+                    <img src="images/story.jpg" alt="店主の想い" class="w-full h-auto rounded-lg shadow-xl object-cover aspect-square md:aspect-[4/3]">
+                </div>
+                <div class="w-full lg:w-1/2 space-y-6">
+                    <div class="inline-block border-b-2 border-brand-red pb-2 mb-4">
+                        <h2 class="text-2xl md:text-3xl font-serif text-brand-dark">手仕事の温もりを、<br>洗練された空間で。</h2>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        地域の方に長く愛されるお店にしたい。その想いを胸に、CHINESEDINING油家などでの10年の修行を経た料理人・西村勇希が腕を振るいます。
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        こだわりの自家製調味料から、製麺機を使わず一から手作業で打ち上げる麺や餃子の皮まで。洗馬焼や木曽漆器といった長野の伝統工芸の器とともに、ここだけの特別な食体験をお届けします。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- こだわりセクション (3つのポイント) -->
+    <section id="commitments" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-serif text-brand-dark mb-4">希彩のこだわり</h2>
+                <div class="w-12 h-1 bg-brand-red mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- こだわり 1 -->
+                <div class="group">
+                    <div class="overflow-hidden rounded-lg mb-6 shadow-md aspect-square">
+                        <img src="images/p1.jpg" alt="自家製麺・手作りの皮" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <h3 class="text-xl font-serif text-brand-dark mb-3">完全手作業の麺と皮</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        機械には頼りません。そば粉を練り込んだ生地で差別化を図るなど、温度や湿度を見極めながら一から手作業で打ち上げる麺と餃子の皮は、他にはない豊かな食感を生み出します。
+                    </p>
+                </div>
+                <!-- こだわり 2 -->
+                <div class="group">
+                    <div class="overflow-hidden rounded-lg mb-6 shadow-md aspect-square">
+                        <img src="images/p2.jpg" alt="伝統工芸の器" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <h3 class="text-xl font-serif text-brand-dark mb-3">伝統工芸との融合</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        木曽漆器の器に長芋のすりおろしを流し入れ、その上に水餃子を浮かせるなど、洗馬焼をはじめとする地元の職人が手掛けた器が、料理の美しさと味わいをさらに引き立てます。
+                    </p>
+                </div>
+                <!-- こだわり 3 -->
+                <div class="group">
+                    <div class="overflow-hidden rounded-lg mb-6 shadow-md aspect-square">
+                        <img src="images/p3.jpg" alt="自家製調味料" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <h3 class="text-xl font-serif text-brand-dark mb-3">熟成自家製調味料</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        ニンニクの下処理からじっくりと時間をかけ、信州味噌を使った甜麺醤やおから味噌、豆板醤まで、料理の基礎となる調味料の数々を店内で丁寧に仕込んでいます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ギャラリー -->
+    <section id="gallery" class="py-20 bg-brand-light">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif text-brand-dark mb-4">おしながき・空間</h2>
+                <div class="w-12 h-1 bg-brand-red mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
+                <img src="images/g1.jpg" alt="ギャラリー画像 1" class="w-full h-48 md:h-64 object-cover rounded shadow-sm hover:opacity-90 transition-opacity">
+                <img src="images/g2.jpg" alt="ギャラリー画像 2" class="w-full h-48 md:h-64 object-cover rounded shadow-sm hover:opacity-90 transition-opacity">
+                <img src="images/g3.jpg" alt="ギャラリー画像 3" class="w-full h-48 md:h-64 object-cover rounded shadow-sm hover:opacity-90 transition-opacity">
+                <img src="images/g4.jpg" alt="ギャラリー画像 4" class="w-full h-48 md:h-64 object-cover rounded shadow-sm hover:opacity-90 transition-opacity">
+                <img src="images/g5.jpg" alt="ギャラリー画像 5" class="w-full h-48 md:h-64 object-cover rounded shadow-sm hover:opacity-90 transition-opacity">
+                <img src="images/g6.jpg" alt="ギャラリー画像 6" class="w-full h-48 md:h-64 object-cover rounded shadow-sm hover:opacity-90 transition-opacity">
+            </div>
+        </div>
+    </section>
+
+    <!-- 店舗情報 -->
+    <section id="info" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gray-50 rounded-xl p-8 md:p-12 shadow-inner border border-gray-100">
+                <h2 class="text-2xl font-serif text-brand-dark mb-8 text-center border-b border-gray-200 pb-4">店舗情報</h2>
+                <div class="space-y-6 text-gray-700">
+                    <div class="flex flex-col md:flex-row border-b border-gray-200 pb-4">
+                        <span class="md:w-1/3 font-medium text-gray-900 mb-1 md:mb-0">店名</span>
+                        <span class="md:w-2/3">中華房 希彩（きさい）</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-gray-200 pb-4">
+                        <span class="md:w-1/3 font-medium text-gray-900 mb-1 md:mb-0">オープン予定</span>
+                        <span class="md:w-2/3">2026年9月</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-gray-200 pb-4">
+                        <span class="md:w-1/3 font-medium text-gray-900 mb-1 md:mb-0">所在地</span>
+                        <span class="md:w-2/3">長野県（開業準備中）</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-gray-200 pb-4">
+                        <span class="md:w-1/3 font-medium text-gray-900 mb-1 md:mb-0">店主・料理人</span>
+                        <span class="md:w-2/3">西村 勇希</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-brand-dark text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl font-serif mb-4">中華房 希彩</h2>
+            <p class="text-gray-400 text-sm mb-8">小さな中華の特等席</p>
+            <p class="text-xs text-gray-500">&copy; 2026 中華房 希彩. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 固定ボトムバー (予約機能) -->
+    <div class="fixed bottom-0 left-0 w-full z-50 flex h-[70px] bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.1)]">
+        <!-- LINEで予約 -->
+        <a href="#" class="flex-1 flex items-center justify-center bg-[#06C755] text-white font-medium text-sm md:text-base hover:bg-[#05b34c] transition-colors">
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.5 10.4c0-4.4-4.5-8-10-8s-10 3.6-10 8c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2 1 .5.1.2 0 .6 0 .6l-.2 1.3c0 .1-.1.4.3.6.3.2.7 0 .7 0 2.9-1.9 5.3-4.2 6.8-6.6.6-1.1 1-2.4 1-3.6z"/>
+            </svg>
+            LINEで予約
+        </a>
+        <!-- 電話で予約 -->
+        <a href="tel:0000000000" class="flex-1 flex items-center justify-center bg-brand-dark text-white font-medium text-sm md:text-base hover:bg-gray-800 transition-colors border-l border-gray-700">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            電話で予約
+        </a>
+    </div>
+
+    <!-- ハンバーガーメニュー用JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            const links = menu.querySelectorAll('a');
+
+            const toggleMenu = () => {
+                menu.classList.toggle('hidden');
+                if (menu.classList.contains('hidden')) {
+                    icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                } else {
+                    icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                }
+            };
+
+            btn.addEventListener('click', toggleMenu);
+
+            // リンククリック時にメニューを閉じる
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
